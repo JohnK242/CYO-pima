@@ -38,9 +38,6 @@ summary(pima_dataset)
 
 
 
-
-
-
 #### Analyzing Outcome Distribution
 
 # Visualizing the distribution of diabetes outcomes to understand the balance of classes
