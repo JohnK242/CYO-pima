@@ -301,7 +301,7 @@ An RMSE of approximately 0.42 indicates that, on average, the model's prediction
 
 # 5. Conclusion and Reflections
 
-My project's journey through the exploration, analysis, and modeling of the Pima Indians Diabetes dataset has culminated in the development of a neural network model aimed at predicting the onset of diabetes. Upon a thorough evaluation of the model's performance, I have achieved a noteworthy accuracy rate of 0.7922. This rate is particularly significant when considering the context of predictive modeling in medical diagnostics, where an accuracy rate of 0.78 or higher is regarded as excellent.
+My project's journey through the exploration, analysis, and modeling of the Pima Indians Diabetes dataset has culminated in the development of a neural network model aimed at predicting the onset of diabetes. Upon a thorough evaluation of the model's performance, I have achieved an  accuracy rate higher than 0.70. This rate is particularly significant when considering the context of predictive modeling in medical diagnostics, where an accuracy rate of 0.70 or higher is regarded as good.
 
 ## Project Achievements
 ### Data Analysis 

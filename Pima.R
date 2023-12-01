@@ -94,14 +94,13 @@ validation_data <- pima_dataset[data_partition_index,]
 # Formulating the neural network structure based on the dataset
 formula_for_nn <- as.formula(paste("DiabetesStatus ~", paste(names(training_data)[!names(training_data) %in% "DiabetesStatus"], collapse = " + ")))
 
-################################
+
+
+
+#### Initiating Neural Network Training
 # Check if all columns in the formula are in the dataset
 all_variables <- all(names(training_data) %in% all.vars(formula_for_nn))
 print(all_variables)
-
-# If 'all_variables' is FALSE, update the formula to match the dataset
-# For example:
-# formula_for_nn <- as.formula("DiabetesStatus ~ .", data = training_data)
 
 # Explicitly define the formula
 formula_for_nn <- as.formula("DiabetesStatus ~ Pregnancies + Glucose + BloodPressure + SkinThickness + Insulin + BMI + DiabetesPedigree + Age")
@@ -112,17 +111,6 @@ print(str(training_data))
 # Train the neural network with the explicitly defined formula
 nn_model <- neuralnet(formula_for_nn, data=training_data, hidden=c(8), linear.output=FALSE, threshold = 0.06)
 prediction_results <- compute(nn_model, validation_data[,1:8])
-
-##################################
-
-
-
-#### Initiating Neural Network Training
-
-# Training the neural network with specified architecture
-nn_model <- neuralnet(formula_for_nn, data=training_data, hidden=c(8), linear.output=FALSE, threshold = 0.06)
-prediction_results <- compute(nn_model, validation_data[,1:8])
-
 
 
 
@@ -136,7 +124,6 @@ confusion_matrix_result <- confusionMatrix(as.factor(round(prediction_results$ne
 confusion_matrix_result
 
 
-
 #### Visual Comparison of Predictions and Actual Outcomes
 
 # Plotting to compare the model's predictions against actual outcomes
@@ -147,13 +134,6 @@ abline(0,1)
 
 
 #### Calculating the Root Mean Square Error
-
-# Computing the RMSE to measure the prediction error of the model
-rmse_metric <- sqrt(mean((validation_data$DiabetesStatus - prediction_results$net.result)^2))
-rmse_metric
-
-
-
 
 # RMSE is a measure of the differences between predicted and observed values
 # Here, we calculate RMSE to quantify the accuracy of our neural network model
@@ -166,15 +146,6 @@ rmse_score
 
 
 
-
 ### 5. Conclusion and Reflections
 
-#Conclusion: Understanding Our Findings
-#What We Discovered
-#We've completed our analysis using a neural network to predict diabetes outcomes. The key takeaway is the RMSE score we calculated. This score tells us how accurate our predictions were compared to the actual data. Think of it as a way to measure how close our model's guesses were to the real answers.
-
-#How Good Was Our Model?
-#The RMSE value helps us understand how well our model did. A lower RMSE means our predictions were more accurate. We can compare this score to other models or benchmarks to see if our model is doing well. If our RMSE is lower than others, it means our model is quite good at predicting who might have diabetes.
-
-#Looking Ahead
-#There's always room to make our model better. We could try different ways of setting up the neural network or use more data for training. We can also explore new methods that might make our predictions even more accurate. All of this can help us build a tool that's really useful for healthcare, especially for understanding and predicting diabetes.
+#My project's journey through the exploration, analysis, and modeling of the Pima Indians Diabetes dataset has culminated in the development of a neural network model aimed at predicting the onset of diabetes. Upon a thorough evaluation of the model's performance, I have achieved an  accuracy rate higher than 0.70. This rate is particularly significant when considering the context of predictive modeling in medical diagnostics, where an accuracy rate of 0.70 or higher is regarded as good.
